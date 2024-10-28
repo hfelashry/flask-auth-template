@@ -22,3 +22,5 @@ Download the following packages
 - flask
 - markdown
 - google-generativeai
+- pymongo
+- bcrypt
