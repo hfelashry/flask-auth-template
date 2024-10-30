@@ -5,8 +5,10 @@ import os
 import google.generativeai as genai
 import markdown
 
+# Configuration
 app = Flask(__name__)
 app.secret_key = "jhafyBEYDHBF*fhu0_Sd;aspd#Y&*G"
+title = 'Qubed'
 
 # Database
 client = pymongo.MongoClient("mongodb+srv://hamzafelashry12:65uSWsMu0E4eTKkW@notaiq.klloi.mongodb.net/?retryWrites=true&w=majority&appName=NotaIQ")
