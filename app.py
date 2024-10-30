@@ -13,11 +13,14 @@ client = pymongo.MongoClient("mongodb+srv://hamzafelashry12:65uSWsMu0E4eTKkW@not
 db = client.get_database('NotaIQ')
 auth = db.register
 
-
-
+#! Static Page Routes
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 #! Authentication Routes
 @app.route('/register', methods=['GET', 'POST'])
@@ -25,7 +28,6 @@ def register():
     message = ''
     if 'email' in session:
         return redirect(url_for('dashboard'))
-    
     if request.method == 'POST':
         user = request.form.get("name")
         email = request.form.get('email')
@@ -102,19 +104,22 @@ def dashboard():
     else:
         return redirect(url_for('login'))
 
-
 @app.route('/generate', methods=['GET', 'POST'])
 def generate():
     questions = ''
-    if request.method == 'POST':
-        text = request.form['text_input']
-        geminiKey = os.environ["geminiKey"]
-        genai.configure(api_key=geminiKey)
-        model = genai.GenerativeModel("gemini-1.5-flash")
-        response = model.generate_content('With the following notes, create questions so that the student can answer them to study. ' + text)
-        text_content = response.candidates[0].content.parts[0].text
-        questions = markdown.markdown(text_content)
-    return render_template("generate.html", content=questions)
-
+    if 'email' in session:
+        email = session['email']
+        name = session.get('name', 'User')  # Use a default if name not found in session
+        if request.method == 'POST':
+            text = request.form['text_input']
+            geminiKey = os.environ["geminiKey"]
+            genai.configure(api_key=geminiKey)
+            model = genai.GenerativeModel("gemini-1.5-flash")
+            response = model.generate_content('With the following notes, create questions so that the student can answer them to study. ' + text)
+            text_content = response.candidates[0].content.parts[0].text
+            questions = markdown.markdown(text_content)
+        return render_template("generate.html", content=questions)
+    else:
+        return redirect(url_for('login'))
 
 app.run(host="0.0.0.0", port=80, debug=True)
