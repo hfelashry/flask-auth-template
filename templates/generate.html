@@ -39,6 +39,8 @@
         });
       });
     </script>
+        <link rel="icon" type="image/x-icon" href="https://i.ibb.co/W0b8DGT/icon-2.png">
+
     <title>Qubed - Generate</title>
   </head>
   <body>
@@ -129,6 +131,38 @@
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content flex flex-col items-center justify-center">
           <!-- Page content here -->
+          <h1 class="text-3xl font-bold">Generate Questions.</h1>
+          <p class="mt-2 text-lg">
+            Here, you can create questions based off of your notes, powered by Gemini.
+          </p>
+          
+          <div class="flex flex-col items-center justify-center w-full p-6">
+            <form
+              action="/generate"
+              method="POST"
+              class="bg-base-100 p-8 rounded-lg shadow-md w-full max-w-md"
+            >
+              <p class="text-center mb-4">Copy and paste your notes here!</p>
+              <textarea
+                class="textarea textarea-bordered textarea-lg w-full"
+                placeholder="Notes"
+                rows="8"
+                name="text_input"
+                id="text_input"
+              ></textarea>
+              <button type="submit" class="btn btn-primary mt-4 w-full">
+                Generate
+              </button>
+              {% if content %}
+              <section
+                class="bg-gray-200 rounded-xl p-4 mt-6 max-w-md w-full text-center"
+              >
+                <p>Generated Questions</p>
+                {{ content | safe }}
+              </section>
+              {% endif %}
+            </form>
+          </div>
           <label
             for="my-drawer-2"
             class="btn btn-primary drawer-button lg:hidden"
@@ -159,35 +193,6 @@
             </li>
           </ul>
         </div>
-      </div>
-
-      <!-- Centered Form Container -->
-      <div class="flex flex-col items-center justify-center w-full p-6 ml-16">
-        <form
-          action="/generate"
-          method="POST"
-          class="bg-base-100 p-8 rounded-lg shadow-md w-full max-w-md"
-        >
-          <p class="text-center mb-4">Copy and paste your notes here!</p>
-          <textarea
-            class="textarea textarea-bordered textarea-lg w-full"
-            placeholder="Notes"
-            rows="8"
-            name="text_input"
-            id="text_input"
-          ></textarea>
-          <button type="submit" class="btn btn-primary mt-4 w-full">
-            Generate
-          </button>
-          {% if content %}
-          <section
-            class="bg-gray-200 rounded-xl p-4 mt-6 max-w-md w-full text-center"
-          >
-            <p>Generated Questions</p>
-            {{ content | safe }}
-          </section>
-          {% endif %}
-        </form>
       </div>
     </div>
   </body>
