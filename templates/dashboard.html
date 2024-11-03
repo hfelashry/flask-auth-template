@@ -120,42 +120,94 @@
         <a class="btn btn-ghost text-xl">Qubed</a>
       </div>
       <div class="navbar-end">
-        <a class="btn bg-red-100 dark:bg-gray-300 dark:text-gray-600" href="/signout">Sign Out</a>
+        <a class="btn bg-red-100 dark:bg-gray-300 dark:text-gray-600" href="/dashboard">Dashboard</a>
       </div>
     </div>
 
-    <div class="drawer lg:drawer-open">
-      <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content flex flex-col items-center justify-center">
-        <!-- Page content here -->
-        <label
-          for="my-drawer-2"
-          class="btn btn-primary drawer-button lg:hidden"
-        >
-          Open Sidebar
-        </label>
+    <div class="bg-gray-200 py-20 dark:bg-gray-800">
+      <div class="text-center">
+        <p class="text-5xl mt-12 text-slate-100">What is Qubed?</p>
       </div>
-      <div class="drawer-side">
-        <label
-          for="my-drawer-2"
-          aria-label="close sidebar"
-          class="drawer-overlay"
-        ></label>
-        <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-          <!-- Sidebar content here -->
-          <li class="bg-base-300 rounded">
-            <a href="/dashboard"
-              ><i class="fa-solid fa-chart-line"></i>Dashboard</a
-            >
-          </li>
-          <li class="bg-base-300 rounded mt-1">
-            <a href="/generate"><i class="fa-solid fa-list-ul"></i>Generate</a>
-          </li>
-          <li class="bg-base-300 rounded mt-1">
-            <a href="/tasks"><i class="fa-solid fa-bars-progress"></i></i>Tasks</a>
-          </li>
-        </ul>
+
+      <div class="w-11/12 md:w-2/3 lg:w-1/2 mx-auto mt-16">
+        <div class="collapse collapse-arrow bg-base-200">
+          <input type="radio" name="my-accordion-2" checked="checked" />
+          <div class="collapse-title text-xl font-medium">What are we?</div>
+          <div class="collapse-content">
+            <p>
+              Qubed is a platform made for students by student(s). With the goal
+              of helping students all over the world achieve better academic
+              success, Qubed aims to do just that, empowering every student to
+              learn easier.
+            </p>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200 mt-4">
+          <input type="radio" name="my-accordion-2" />
+          <div class="collapse-title text-xl font-medium">
+            What is our vision?
+          </div>
+          <div class="collapse-content">
+            <p>
+              Our vision is to live in a world where students can find it easier
+              and more fun to learn with the power of technology and AI.
+            </p>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200 mt-4">
+          <input type="radio" name="my-accordion-2" />
+          <div class="collapse-title text-xl font-medium">Beyond Learning.</div>
+          <div class="collapse-content">
+            <p>
+              Our work goes beyond making learning easier. We are committed to
+              making each student’s life better and less stressful from academic
+              pressures.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
+
+    <section class="py-12">
+      <div class="text-center">
+        <p class="text-3xl">Meet the Founder</p>
+        <p class="text-xl mt-4 px-4 md:px-8">
+          Founded in November of 2024 by Hamza Elashry, an aspiring software
+          engineer, who created Qubed to make learning easier and less
+          stressful.
+        </p>
+      </div>
+    </section>
+
+    <div
+      class="flex flex-col md:flex-row items-center justify-center mt-12 space-y-8 md:space-y-0 md:space-x-8 px-4 md:px-12 lg:px-20"
+    >
+      <div class="md:w-1/2 text-center md:text-left">
+        <p class="text-2xl font-semibold">Hamza Elashry</p>
+        <p class="mt-4">
+          Hey, I am Hamza Elashry. I am a 16 year old junior in highschool with a passion for making others lives easier. I believe
+          programming is a superpower that can lead to many great things. I aim
+          to build projects that serve the world and make everyday life easier
+          for people.
+        </p>
+      </div>
+      <div class="md:w-1/3 flex justify-center">
+        <img
+          src="https://media.discordapp.net/attachments/1290870828296310819/1300632015003193434/IMG_5101-modified.png?ex=67218b74&is=672039f4&hm=a3606b68a34f29c6a8368b945edc106498b154be9fde22046957de8a220692ad&=&format=webp&quality=lossless"
+          alt="Hamza Elashry"
+          class="rounded-full w-48 h-48 md:w-56 md:h-56"
+        />
+      </div>
+    </div>
+
+    <footer class="footer footer-center bg-gray-100 text-primary-content p-10 dark:bg-gray-800">
+      <aside>
+        <p class="font-bold text-black dark:text-slate-200">
+          Qubed
+          <br />
+          Accelerate your learning, retain effortlessly.
+        </p>
+      </aside>
+    </footer>
   </body>
 </html>
