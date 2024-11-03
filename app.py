@@ -1,19 +1,20 @@
 from flask import Flask, render_template, request, session, redirect, url_for
+from bson.objectid import ObjectId
 import bcrypt
 import pymongo
 import os
 import google.generativeai as genai
 import markdown
 
-# Configuration
+
 app = Flask(__name__)
 app.secret_key = "jhafyBEYDHBF*fhu0_Sd;aspd#Y&*G"
-title = 'Qubed'
 
 # Database
 client = pymongo.MongoClient("mongodb+srv://hamzafelashry12:65uSWsMu0E4eTKkW@notaiq.klloi.mongodb.net/?retryWrites=true&w=majority&appName=NotaIQ")
 db = client.get_database('NotaIQ')
 auth = db.register
+task_record = db.tasks
 
 #! Static Page Routes
 @app.route('/')
@@ -124,4 +125,39 @@ def generate():
     else:
         return redirect(url_for('login'))
 
-app.run(host="0.0.0.0", port=80, debug=True)
+todos = []
+
+# Show tasks for a specific user
+@app.route('/tasks', methods=['GET'])
+def tasks():
+    if 'email' in session:
+        user_email = session['email']
+        todos = list(task_record.find({'email': user_email}))
+        return render_template('tasks.html', todos=todos)
+    return redirect(url_for('login'))
+
+@app.route('/tasks/add', methods=['POST'])
+def add():
+    task_text = request.form.get('inputTodo').strip()
+    if task_text:
+        task_record.insert_one({'task': task_text, 'done': False, 'email': session['email']})
+    return redirect(url_for('tasks'))
+
+@app.route('/tasks/check/<task_id>', methods=['POST'])
+def check(task_id):
+    task_record.update_one({'_id': ObjectId(task_id)}, {'$set': {'done': not task['done']}})
+    return '', 204
+
+@app.route('/tasks/delete/<task_id>', methods=['GET'])
+def delete(task_id):
+    task_record.delete_one({'_id': ObjectId(task_id), 'email': session['email']})
+    return redirect(url_for('tasks'))
+
+@app.route('/tasks/edit/<task_id>', methods=['POST'])
+def edit(task_id):
+    new_task = request.form['todo']
+    task_record.update_one({'_id': ObjectId(task_id)}, {'$set': {'task': new_task}})
+    return redirect(url_for('tasks'))
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=80, debug=True)
