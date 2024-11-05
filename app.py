@@ -3,7 +3,6 @@ from bson.objectid import ObjectId
 import bcrypt
 import pymongo
 import os
-import google.generativeai as genai
 import markdown
 from groq import Groq
 
