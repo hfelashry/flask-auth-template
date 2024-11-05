@@ -13,6 +13,7 @@
       document.addEventListener("DOMContentLoaded", () => {
         const themeToggle = document.querySelector(".theme-controller");
 
+        // Apply saved theme on load
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme === "dark") {
           document.documentElement.classList.add("dark");
@@ -22,6 +23,7 @@
           themeToggle.checked = false;
         }
 
+        // Toggle theme on checkbox change
         themeToggle.addEventListener("change", () => {
           if (themeToggle.checked) {
             document.documentElement.classList.add("dark");
@@ -33,7 +35,6 @@
         });
       });
     </script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
     <link
       rel="icon"
       type="image/x-icon"
@@ -42,8 +43,7 @@
 
     <title>Qubed - Register</title>
   </head>
-  <body class="flex flex-col min-h-screen">
-    <!-- Navbar -->
+  <body>
     <div class="navbar bg-base-100">
       <div class="navbar-start">
         <div class="dropdown">
@@ -128,8 +128,7 @@
       </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="flex-grow flex justify-center items-center dark:text-black">
+    <div class="flex justify-center items-center min-h-screen dark:text-black">
       <div
         class="mx-auto w-full max-w-sm flex flex-col gap-6 p-6 bg-white shadow-lg rounded-lg"
       >
@@ -195,13 +194,6 @@
             </div>
           </div>
 
-          <div class="form-field">
-            <label class="form-label" for="recaptcha"></label>
-            <div class="form-control" name="recaptcha" id="recaptcha">
-              <div class="g-recaptcha" data-sitekey="{{ pub_key }}"></div>
-            </div>
-          </div>
-
           <div class="form-field pt-5">
             <button type="submit" class="btn btn-primary w-full">
               Register
@@ -219,7 +211,6 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <footer
       class="footer footer-center bg-gray-100 text-primary-content p-10 dark:bg-gray-800"
     >
