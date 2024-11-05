@@ -5,7 +5,7 @@ import pymongo
 import os
 import google.generativeai as genai
 import markdown
-
+from groq import Groq
 
 app = Flask(__name__)
 app.secret_key = "jhafyBEYDHBF*fhu0_Sd;aspd#Y&*G"
@@ -15,6 +15,11 @@ client = pymongo.MongoClient("mongodb+srv://hamzafelashry12:65uSWsMu0E4eTKkW@not
 db = client.get_database('NotaIQ')
 auth = db.register
 task_record = db.tasks
+
+#! Groq
+groqClient = Groq(
+    api_key= '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'
+)
 
 #! Static Page Routes
 @app.route('/')
@@ -115,11 +120,16 @@ def generate():
         name = session.get('name', 'User')  # Use a default if name not found in session
         if request.method == 'POST':
             text = request.form['text_input']
-            geminiKey = os.environ["geminiKey"]
-            genai.configure(api_key=geminiKey)
-            model = genai.GenerativeModel("gemini-1.5-flash")
-            response = model.generate_content('With the following notes, create questions so that the student can answer them to study. ' + text)
-            text_content = response.candidates[0].content.parts[0].text
+            chat_completion = groqClient.chat.completions.create(
+                messages=[
+                    {
+                        "role": "user",
+                        "content": "With the following notes, please create questions so that the student can answer and to learn the topic better." + text,
+                    }
+                ],
+                model="llama3-8b-8192",
+            )
+            text_content = chat_completion.choices[0].message.content
             questions = markdown.markdown(text_content)
         return render_template("generate.html", content=questions)
     else:
@@ -158,6 +168,10 @@ def edit(task_id):
     new_task = request.form['todo']
     task_record.update_one({'_id': ObjectId(task_id)}, {'$set': {'task': new_task}})
     return redirect(url_for('tasks'))
+
+@app.route('/discord')
+def discord():
+    return redirect('https://discord.gg/vABM9PdWvh')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80, debug=True)
