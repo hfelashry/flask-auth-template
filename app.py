@@ -29,6 +29,14 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/terms')
+def terms():
+    return render_template('terms.html')
+
+@app.route('/privacy')
+def privacy():
+    return render_template('privacy.html')
+
 #! Authentication Routes
 @app.route('/register', methods=['GET', 'POST'])
 def register():
