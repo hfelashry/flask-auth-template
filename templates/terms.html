@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const themeToggle = document.querySelector(".theme-controller");
+
+        // Apply saved theme on load
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark");
+          themeToggle.checked = true;
+        } else {
+          document.documentElement.classList.remove("dark");
+          themeToggle.checked = false;
+        }
+
+        // Toggle theme on checkbox change
+        themeToggle.addEventListener("change", () => {
+          if (themeToggle.checked) {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+          }
+        });
+      });
+    </script>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://i.ibb.co/W0b8DGT/icon-2.png"
+    />
+
+    <title>Qubed - Terms</title>
+  </head>
+  <body>
+    <div class="navbar bg-base-100">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h7"
+              />
+            </svg>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+          >
+            <li><a href="/">Homepage</a></li>
+            <li><a href="/about">About</a></li>
+            <li>
+              <a>
+                <label class="grid cursor-pointer place-items-center">
+                  <input
+                    type="checkbox"
+                    value="dark"
+                    class="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1"
+                  />
+                  <svg
+                    class="stroke-base-100 fill-base-100 col-start-1 row-start-1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="5" />
+                    <path
+                      d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"
+                    />
+                  </svg>
+                  <svg
+                    class="stroke-base-100 fill-base-100 col-start-2 row-start-1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                    ></path>
+                  </svg>
+                </label>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="navbar-center">
+        <a class="btn btn-ghost text-xl">Qubed</a>
+      </div>
+      <div class="navbar-end">
+        <a
+          class="btn bg-red-100 dark:bg-gray-300 dark:text-gray-600"
+          href="/dashboard"
+          >Dashboard</a
+        >
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col justify-center items-center mx-auto w-full lg:w-2/3 px-4 py-10 dark:text-white"
+    >
+      <ul>
+        <li>
+          <h1 class="font-bold text-xl">Terms of Service for Qubed</h1>
+          <p>Last Updated: 11/4/2024</p>
+          <p class="mt-2">
+            Thank you for choosing Qubed, your all-in-one student productivity
+            platform. These Terms of Service ("Terms") govern your access to and
+            use of Qubed's website and services (collectively, the "Services").
+            By using or accessing Qubed, you agree to be bound by these Terms.
+            If you do not agree with these Terms, you should not use our
+            Services.
+          </p>
+        </li>
+        <li>
+          <p class="font-bold text-lg mt-2">1. Acceptance of Terms</p>
+          <p>
+            By accessing or using the Services, you confirm that you are at
+            least the age of 14 and have the consent of your parent / guardian
+            to use our platform.
+          </p>
+        </li>
+        <li>
+          <p class="font-bold text-lg mt-2">2. Scope of Services</p>
+          <p>
+            Qubed offers a suite of tools designed for educational productivity,
+            including but not limited to task management, calendar, Pomodoro
+            timer, and question generation features. We reserve the right to
+            modify, update, or discontinue parts of our Services at any time
+            with notifying you.
+          </p>
+        </li>
+        <li>
+          <p class="font-bold text-lg mt-2">3. User Responsibilities</p>
+          <p>
+            When using Qubed, you agree to the following: - Account Security:
+            You are responsible for maintaining the confidentiality of your
+            account information, including your password. You are also
+            responsible for all activities that occur under your account. -
+            Appropriate Use: You agree not to misuse the Services or use them in
+            any way that could harm the Services or impair the experience of
+            other users. You agree not to use Qubed for any illegal purposes.
+          </p>
+        </li>
+        <li>
+          <p class="font-bold text-lg mt-2">4. Privacy</p>
+          <p>
+            We are committed to protecting your privacy. Please review our
+            Privacy Policy https://qubed.com/privacy, which explains how we
+            collect, use, and share your information. By using the Services, you
+            agree to our Privacy Policy.
+          </p>
+        </li>
+        <li>
+          <p class="font-bold text-lg mt-2">
+            5. Content and Intellectual Property
+          </p>
+          <p>
+            All content available through Qubed, including but not limited to
+            text, graphics, logos, icons, images, and software, is the property
+            of Qubed or its licensors and is protected by intellectual property
+            laws. You agree not to copy, modify, or distribute any content made
+            available through our Services without our prior written consent.
+          </p>
+        </li>
+        <li>
+          <p class="font-bold text-lg mt-2">6. Disclaimer of Warranties</p>
+          <p>
+            QUBED PROVIDES THE SERVICES ON AN "AS IS" AND "AS AVAILABLE" BASIS
+            WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING, BUT
+            NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+            PARTICULAR PURPOSE, OR NON-INFRINGEMENT. QUBED DOES NOT GUARANTEE
+            THAT THE SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE.
+          </p>
+        </li>
+        <li>
+          <p class="font-bold text-lg mt-2">7. Limitation of Liability</p>
+          <p>
+            TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT SHALL QUBED, ITS
+            AFFILIATES, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY
+            DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE
+            DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, OR
+            GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE
+            SERVICES, EVEN IF QUBED HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+            DAMAGES. THIS LIMITATION OF LIABILITY SHALL APPLY TO THE MAXIMUM
+            EXTENT PERMITTED BY LAW.
+          </p>
+        </li>
+        <li>
+          <p class="font-bold text-lg mt-2">8. Indemnification</p>
+          <p>
+            You agree to indemnify, defend, and hold harmless Qubed and its
+            affiliates, directors, employees, and agents from and against all
+            claims, liabilities, damages, losses, and expenses, including
+            reasonable attorneys' fees, arising out of or in any way connected
+            with your use of the Services or violation of these Terms
+          </p>
+        </li>
+        <li>
+          <p class="font-bold text-lg mt-2">10. Changes to These Terms</p>
+          <p>
+            We reserve the right to update or modify these Terms at any time
+            without prior notice. Your continued use of the Services following
+            any changes indicates your acceptance of the updated Terms. It is
+            your responsibility to review these Terms periodically.
+          </p>
+        </li>
+        <li>
+          <p class="font-bold text-lg mt-2">11. Termination</p>
+          <p>
+            Qubed reserves the right to suspend or terminate your access to the
+            Services at our discretion and without notice if you violate these
+            Terms or engage in conduct that we deem harmful to our users or the
+            Services.
+          </p>
+        </li>
+        <li>
+          <p class="mt-4">
+            These Terms of Service the complete agreement between you and Qubed
+            concerning your use of the Services. If any provision is deemed
+            invalid, the remaining provisions will continue in full force. For
+            questions, please contact us at admin@qubed.cc
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <footer
+      class="footer footer-center bg-gray-100 text-primary-content p-10 dark:bg-gray-800"
+    >
+      <aside>
+        <p class="font-bold text-black dark:text-slate-200">
+          Qubed
+          <br />
+          Accelerate your learning, retain effortlessly.
+        </p>
+        <div class="flex">
+          <div>
+            <a href="/discord" class="text-white"
+              ><i class="fa-brands fa-discord"></i
+            ></a>
+          </div>
+        </div>
+      </aside>
+    </footer>
+  </body>
+</html>
