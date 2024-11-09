@@ -149,7 +149,7 @@
               type="name"
               name="name"
               id="inputFullName"
-              class="input input-bordered w-full max-w-xs"
+              class="input input-bordered w-full max-w-xs text-black dark:bg-slate-200"
               required
             />
           </div>
@@ -161,7 +161,7 @@
               type="email"
               name="email"
               id="inputEmail"
-              class="input input-bordered w-full max-w-xs"
+              class="input input-bordered w-full max-w-xs text-black dark:bg-slate-200"
               required
             />
           </div>
@@ -174,7 +174,7 @@
                 type="password"
                 name="password"
                 id="inputPassword"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs text-black dark:bg-slate-200"
                 required
               />
             </div>
@@ -188,14 +188,28 @@
                 type="password"
                 name="passwordAgain"
                 id="inputPasswordAgain"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs text-black dark:bg-slate-200"
                 required
               />
             </div>
           </div>
+          <div class="form-field">
+            <label class="form-label" for="captcha">Captcha</label>
+            <img src="{{ captcha_image }}" alt="CAPTCHA Image">
+            <div class="form-control">
+                <input type="text" name="captcha" id="captcha" class="input input-bordered w-full max-w-xs text-black dark:bg-slate-200">
+            </div>
+        </div>
+        
 
+          </div>
+          <div class="text-sm mt-2">
+            <p>
+              By clicking Register, you agree to the following <a href="/terms" class="text-blue-500">Terms of Service</a> & <a href="/privacy" class="text-blue-500">Privacy Policy</a>
+            </p>
+          </div>
           <div class="form-field pt-5">
-            <button type="submit" class="btn btn-primary w-full">
+            <button type="submit" class="btn btn-primary w-full text-white">
               Register
             </button>
           </div>
