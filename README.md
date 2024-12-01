@@ -1,5 +1,6 @@
-# Qubed
-An AI tool that takes your notes and creates questions for you to answer so that you can study more efficiently.
+# ORIGINALLY WAS NAMED QUBED, NOW A TEMPALTE.
+
+A template that includes MongoDB, Groq, and flask to create a tool that takes your notes and creates questions for you to answer so that you can study more efficiently.
 
 Run these commands to get the environment set up when you are in the code directory
 
