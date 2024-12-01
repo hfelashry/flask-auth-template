@@ -15,14 +15,14 @@ app = Flask(__name__)
 app.secret_key = "jhafyBEYDHBF*fhu0_Sd;aspd#Y&*G"
 
 # Database
-client = pymongo.MongoClient("mongodb+srv://hamzafelashry12:65uSWsMu0E4eTKkW@notaiq.klloi.mongodb.net/?retryWrites=true&w=majority&appName=NotaIQ")
-db = client.get_database('NotaIQ')
+client = pymongo.MongoClient("MongoDB URI")
+db = client.get_database('CLUSTER NAME')
 auth = db.register
 task_record = db.tasks
 
 #! Groq
 groqClient = Groq(
-    api_key= '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'
+    api_key= 'groqClientKey'
 )
 
 
